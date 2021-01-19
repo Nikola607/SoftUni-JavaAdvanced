@@ -1,4 +1,4 @@
 package MultidimensionalArrays;
 
-public class Test {
+public class FillTheMatrix {
 }
