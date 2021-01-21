@@ -31,7 +31,7 @@ public class AcademyGraduation {
             double average = sum / e.getValue().length;
             String format = decimalFormat.format(average);
             System.out.printf("%s is graduated with ", e.getKey());
-            System.out.printf(" %s\n", format);
+            System.out.printf("%s\n", format);
         });
     }
 }
