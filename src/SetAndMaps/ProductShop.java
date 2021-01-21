@@ -1,5 +1,6 @@
 package SetAndMaps;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
@@ -16,7 +17,7 @@ public class ProductShop {
             String product = input[1];
             double price = Double.parseDouble(input[2]);
 
-            map.putIfAbsent(name, new TreeMap<>());
+            map.putIfAbsent(name, new LinkedHashMap<>());
             map.get(name).put(product, price);
 
             input = scan.nextLine().split(", ");
@@ -25,7 +26,7 @@ public class ProductShop {
         map.entrySet().stream().forEach(e ->{
             System.out.println(e.getKey() + "->");
             e.getValue().
-                    forEach((k, v) -> System.out.printf("Product: %s, Price: %.2f\n", k, v));
+                    forEach((k, v) -> System.out.printf("Product: %s, Price: %.1f\n", k, v));
         });
     }
 }
