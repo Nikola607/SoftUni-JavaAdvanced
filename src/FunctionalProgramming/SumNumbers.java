@@ -1,6 +1,5 @@
 package FunctionalProgramming;
 
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.function.Function;
 
@@ -8,19 +7,18 @@ public class SumNumbers {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        int[] array = Arrays.stream(scan.nextLine().split(", ")).mapToInt(Integer::parseInt).
-                toArray();
+        String[] numbers = scan.nextLine().split(", ");
 
-        if (array.length < 2) {
-            System.out.println("Count = " + array.length);
-            System.out.println("Sum = " + array[0]);
+        if (numbers.length < 2) {
+            System.out.println("Count = " + numbers.length);
+            System.out.println("Sum = " + numbers[0]);
         } else {
             Function<String, Integer> function = e -> Integer.parseInt(e);
             int sum = 0;
-            for (Integer s: array) {
-                sum+=function.apply(s.toString());
+            for (String s: numbers) {
+                sum+=function.apply(s);
             }
-            System.out.println("Count = " + array.length);
+            System.out.println("Count = " + numbers.length);
             System.out.println("Sum = " + sum);
         }
     }
