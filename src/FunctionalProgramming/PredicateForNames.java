@@ -13,6 +13,6 @@ public class PredicateForNames {
 
         Predicate<String> filterNames = name -> name.length() <= lengthNeeded;
 
-        Arrays.stream(names).filter(filterNames).forEach(System.out::println);
+        Arrays.stream(names).filter(filterNames).forEach(e -> System.out.println(e));
     }
 }
