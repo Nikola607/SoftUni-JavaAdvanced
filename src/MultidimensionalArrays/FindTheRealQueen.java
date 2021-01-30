@@ -20,7 +20,8 @@ public class FindTheRealQueen {
             for (int col = 0; col < matrix.length; col++) {
                 char currentSymbol = matrix[row][col];
                 if (currentSymbol == 'q') {
-                    if (checkIfIsRealQueen(matrix, row, col)) {
+                    checkIfIsRealQueen(matrix, row, col);
+                    if(checkIfIsRealQueen(matrix, row, col)){
                         System.out.println(row + " " + col);
                         break;
                     }
@@ -30,43 +31,33 @@ public class FindTheRealQueen {
     }
 
     private static boolean checkIfIsRealQueen(char[][] matrix, int currentRow, int currentCol) {
-        if (!HorizontalLine(matrix, currentRow, currentCol) || !VerticalLine(matrix, currentRow, currentCol)) {
+        if(!HorizontalLine(matrix, currentRow, currentCol) || !VerticalLine(matrix, currentRow, currentCol)){
             return false;
         }
-        return true;
+        return  true;
     }
 
     private static boolean VerticalLine(char[][] matrix, int currentRow, int currentCol) {
         int queenCounter = 0;
 
-        for (int row = 0; row < matrix.length; row++) {                   //from top to center
+        for (int row = 0; row <matrix.length; row++) {
             char currentSymbol = matrix[row][currentCol];
             if (currentSymbol == 'q') {
                 queenCounter++;
             }
         }
-        for (int row = matrix.length - 1; row > currentRow; row--) {    //from bottom to center
-            char currentSymbol = matrix[row][currentCol];
-            if (currentSymbol == 'q') {
-                return false;
-            }
-        }
-        return true;
+        return queenCounter < 2;
     }
 
     private static boolean HorizontalLine(char[][] matrix, int currentRow, int currentCol) {
-        for (int col = 0; col < currentCol; col++) {                      //from start to center
+        int queenCounter = 0;
+
+        for (int col = 0; col < matrix[currentRow].length; col++) {
             char currentSymbol = matrix[currentRow][col];
             if (currentSymbol == 'q') {
-                return false;
+                queenCounter++;
             }
         }
-        for (int col = matrix[currentRow].length - 1; col > currentCol; col--) {        //from end to center
-            char currentSymbol = matrix[currentRow][col];
-            if (currentSymbol == 'q') {
-                return false;
-            }
-        }
-        return true;
+        return queenCounter < 2;
     }
 }
