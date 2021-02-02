@@ -11,19 +11,20 @@ public class Department {
     public Department() {
         this.employeeList = new ArrayList<>();
     }
-    public void addEmployee(CompanyRoster employee){
+
+    public void addEmployee(CompanyRoster employee) {
         this.employeeList.add(employee);
     }
 
-    public List<CompanyRoster> getEmployeeList(){
+    public List<CompanyRoster> getEmployeeList() {
         return Collections.unmodifiableList(this.employeeList);
     }
 
-    public double getAverageSalary(){
+    public double getAverageSalary() {
         double average = 0;
 
-        for(CompanyRoster employee : this.employeeList){
-            average+=employee.getSalary();
+        for (CompanyRoster employee : this.employeeList) {
+            average += employee.getSalary();
         }
         return average / this.employeeList.size();
     }
