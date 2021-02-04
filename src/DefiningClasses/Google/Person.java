@@ -69,7 +69,7 @@ public class Person {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder(this.name);
         sb.append(System.lineSeparator());
         sb.append("Company:").
