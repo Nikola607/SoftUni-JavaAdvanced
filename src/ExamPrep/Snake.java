@@ -63,7 +63,6 @@ public class Snake {
         char symbol = matrix[newRow][newCol];
 
 
-
         if (symbol == '*') {
             food++;
         }
